@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Echarts-饼图</title>
+    <script src="./echarts.js"></script>
+</head>
+<body>
+<div id="main" style="width:600px;height: 400px;">
+
+</div>
+<script>
+  var myChart=echarts.init(document.getElementById("main"));
+  var option={
+    title:{
+      show:true
+    },
+    tooltip : {
+      trigger: 'item',
+      formatter: "{a} <br/>{b}: {c}%"
+    },
+    itemStyle:{
+      emphasis:{
+        shadowBlur:10,
+        shadowOffsetX:0,
+        shadowOffsetY:0,
+        shadowColor:'rgba(0,0,0,.5)',
+        label:{show:true},
+        labelLine:{show:true}
+      }
+    },
+    series:[{
+      name:"昨日活跃用户平台分布",
+      type:"pie",
+//      roseType:"angle",
+      radius:"60%",
+      data:[
+        {value:60,name:"Android",itemStyle:{normal:{color:"#F6C159"}}},
+        {value:20,name:"iOS",itemStyle:{normal:{color:"#84CDBD"}}},
+        {value:5,name:"PC",itemStyle:{normal:{color:"#2568CE"}}},
+        {value:15,name:"iPad",itemStyle:{normal:{color:"#D46D6A"}}}
+      ]
+    }]
+  }
+  myChart.setOption(option);
+</script>
+</body>
+</html>
